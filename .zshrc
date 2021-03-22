@@ -99,6 +99,7 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 alias zshconfig="code ~/.zshrc"
+alias csgoconfig="code /home/ppioli/.steam/debian-installation/steamapps/common/Counter-Strike Global Offensive/csgo/cfg/config.cfg"
 alias ohmyzsh="code ~/.oh-my-zsh"
 alias clipboard='xclip -selection clipboard'
 alias config='/usr/bin/git --git-dir=/home/ppioli/.dotfiles/ --work-tree=/home/ppioli'

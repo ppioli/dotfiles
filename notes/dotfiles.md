@@ -14,3 +14,5 @@ git clone --bare git@github.com:ppioli/dotfiles.git $HOME/.dotfiles
 ```
 config checkout
 ```
+
+[Source](https://www.atlassian.com/git/tutorials/dotfiles)
