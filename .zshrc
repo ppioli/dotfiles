@@ -136,8 +136,8 @@ ex ()
   fi
 }
 
-export DOTNET_ROOT=~/.dotnet
-export ANDROID_SDK_ROOT=~/Android/Sdk
-export BROWSER=google-chrome-stable
+#export DOTNET_ROOT="/usr/share/dotnet/sdk"
+#export ANDROID_SDK_ROOT="~/Android/Sdk"
+#export BROWSER="google-chrome-stable"
 
 export PATH="$PATH:$HOME/.dotnet:$HOME/.dotnet/tools:$HOME/.scripts"

@@ -1,4 +1,7 @@
 #!/bin/sh
+
+# If you get the following error: FATAL:  Peer authentication failed for user "<user>"
+# you must add the user to hba_conf
 BACKUP_DIR="/home/acha/backups"
 TARGET_DIR="/home/ppioli/data"
 CREATE=0
@@ -35,16 +38,16 @@ fi
 
 if [ $CREATE -eq 1 ]; then
     echo "Creating backup"
-    ssh acha@192.168.137.118 "sh $BACKUP_DIR/backup.sh"
+    ssh acha@production "sh $BACKUP_DIR/backup.sh" || { echo 'Could not create the backup... Leaving...' ; exit 1; }
 fi
 if [ $FETCH -eq 1 ]; then
     echo "Fetching backup" 
-    scp acha@192.168.137.118:$BACKUP_DIR/latest.sql.gz $TARGET_DIR
+    scp acha@production:$BACKUP_DIR/latest.sql.gz $TARGET_DIR || { echo 'Could not fetch the backup... Leaving...' ; exit 1; }
 fi
 if [ $RESTORE -eq 1 ]; then
     echo "Restoring Backup"
-    dropdb acha --username acha
-    createdb acha --username acha
-    gunzip < $TARGET_DIR/latest.sql.gz | psql acha - --username acha
+    dropdb acha -U acha || { echo 'Failed droping db. Leaving...' ; exit 1; }
+    createdb acha || { echo 'Failed creating new db. Leaving...' ; exit 1; }
+    ( gunzip < $TARGET_DIR/latest.sql.gz | psql acha  ) || { echo 'Failed restoring the backup. Leaving.' ; exit 1; }
 fi
 
