@@ -89,18 +89,12 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+#configurations
+alias zshrc="vim ~/.zshrc"
+alias csgorc="vim /home/ppioli/.steam/debian-installation/steamapps/common/Counter-Strike Global Offensive/csgo/cfg/config.cfg"
+alias omzshrc="vim ~/.oh-my-zsh"
+alias vimrc="vim ~/.config/nvim/init.vim"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-alias zshconfig="code ~/.zshrc"
-alias csgoconfig="code /home/ppioli/.steam/debian-installation/steamapps/common/Counter-Strike Global Offensive/csgo/cfg/config.cfg"
-alias ohmyzsh="code ~/.oh-my-zsh"
 alias clipboard='xclip -selection clipboard'
 alias config='/usr/bin/git --git-dir=/home/ppioli/.dotfiles/ --work-tree=/home/ppioli'
 alias cp="cp -i"                                                # Confirm before overwriting something
@@ -142,3 +136,4 @@ ex ()
 #export BROWSER="google-chrome-stable"
 
 export PATH="$PATH:$HOME/.dotnet:$HOME/.dotnet/tools:$HOME/.scripts"
+export $XDG_CONFIG_HOME="$HOME/.config"
